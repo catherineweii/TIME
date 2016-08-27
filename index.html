@@ -149,7 +149,7 @@
     </body>
     <script type="text/javascript">
         var todayText = getTodayText(-8)
-        document.getElementById("NavTitle").innerHTML = "THE " + (isNaN(todayText[1]) ? "∞" : todayText[1] )+"TH DAY";
+        document.getElementById("NavTitle").innerHTML = isNaN(todayText[1]) ? "" : "THE " + todayText[1] +"TH DAY"
         document.getElementById("TodayDate").innerHTML = todayText[0];
         setTime()
 
@@ -184,7 +184,7 @@
             var currentDate = new Date(utcTime + 3600000 * i);
 
             var theDay = new Date("5-31-2016");
-            var days = parseInt(Math.abs(currentDate  -  theDay)  /  1000  /  60  /  60  /24) 
+            var days = parseInt(Math.abs(currentDate.getTime()  -  theDay.getTime())  /  1000  /  60  /  60  /24) 
             return [currentDate.toDateString(),days];
         }
         function setTime() {
