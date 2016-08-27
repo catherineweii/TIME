@@ -147,7 +147,7 @@
     </body>
     <script type="text/javascript">
         var todayText = getTodayText(-8)
-        document.getElementById("NavTitle").innerHTML = "THE " + (!isNaN(todayText[1]) ? "∞" : todayText[1] )+"TH DAY";
+        document.getElementById("NavTitle").innerHTML = "THE " + (isNaN(todayText[1]) ? "∞" : todayText[1] )+"TH DAY";
         document.getElementById("TodayDate").innerHTML = todayText[0];
         setTime()
 
