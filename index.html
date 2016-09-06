@@ -195,8 +195,10 @@
             return [currentDate.toDateString(),days];
         }
         function setTime() {
-            document.getElementById("Los Angeles, US").innerHTML = getLocalTime(-7);
-            document.getElementById("London, UK").innerHTML = getLocalTime(0);
+            var USATimeZone = ((Date.today().is().nov() && (Date.compare(Date.today(), Date.parse('2016-11-06')) || Date.compare(Date.today(), Date.parse('2017-11-05')) || Date.compare(Date.today(), Date.parse('2018-11-04')) || Date.compare(Date.today(), Date.parse('2019-11-03'))) ) || Date.today().is().dec() || Date.today().is().jan() || Date.today().is().feb() || (Date.today().is().mar() && (Date.compare(Date.parse('2017-03-12'), Date.today()) || Date.compare(Date.parse('2018-03-11'), Date.today()) || Date.compare(Date.parse('2019-03-10'), Date.today()) ) ) ) ? -8 : -7;
+            document.getElementById("Los Ageles, US").innerHTML = getLocalTime(USATimeZone);
+            var UKTimeZone = ( (Date.today().is().oct() && (Date.compare(Date.today(), Date.parse('2016-10-30')) || Date.compare(Date.today(), Date.parse('2017-10-29')) || Date.compare(Date.today(), Date.parse('2018-10-28')) || Date.compare(Date.today(), Date.parse('2019-10-27')) ) ) || Date.today().is().nov() || Date.today().is().dec() || Date.today().is().jan() || Date.today().is().feb() || (Date.today().is().mar() && (Date.compare(Date.parse('2017-03-26'), Date.today()) || Date.compare(Date.parse('2018-03-25'), Date.today()) || Date.compare(Date.parse('2019-03-24'), Date.today()) ))) ? 0 : 1;
+            document.getElementById("London, UK").innerHTML = getLocalTime(UKTimeZone);
             document.getElementById("Beijing, CN").innerHTML = getLocalTime(8);
         }
     </script>
